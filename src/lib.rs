@@ -2,7 +2,7 @@
 
 use core::arch::asm;
 
-fn print(text: &str) {
+pub fn print(text: &str) {
     let print_addr = 0x1A10FF80;
 
     for byte in text.as_bytes() {
