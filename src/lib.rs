@@ -39,13 +39,25 @@ macro_rules! print {
     }};
 }
 
+pub enum Format {
+    Dec,
+    Hex,
+    Bin
+}
+
 #[macro_export]
 macro_rules! print_nr {
-    ($name:tt,$number:tt) => {
+    ($name:tt,$number:tt,$format:tt) => {
        
             print($name);
             let mut buf = [0u8; 100];
-            let number = $number.numtoa_str(16, &mut buf);
+            let number = match $format {
+                Format::Hex => $number.numtoa_str(16, &mut buf);,
+                Format::Bin => $number.numtoa_str(2, &mut buf);,
+                _ => $number.numtoa_str(10, &mut buf);,
+            }
+             
+            print(" ");
             print(number);
             print("\n");        
 
