@@ -46,7 +46,7 @@ macro_rules! print_nr {
             print($name);
             let mut buf = [0u8; 100];
             let number = $number.numtoa_str(16, &mut buf);
-            print($number);
+            print(number);
             print("\n");        
 
     };
