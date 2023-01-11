@@ -47,7 +47,7 @@ pub enum Format {
 
 #[macro_export]
 macro_rules! print_nr {
-    ($name:tt,$number:tt,$format:tt) => {
+    ($name:tt,$number:tt,$format:path) => {
        
             print($name);
             let mut buf = [0u8; 100];
@@ -55,7 +55,7 @@ macro_rules! print_nr {
                 Format::Hex => $number.numtoa_str(16, &mut buf),
                 Format::Bin => $number.numtoa_str(2, &mut buf),
                 _ => $number.numtoa_str(10, &mut buf),
-            }
+            };
              
             print(" ");
             print(number);
