@@ -1,6 +1,7 @@
 #![no_std]
 
 use core::arch::asm;
+use numtoa::NumToA; 
 
 pub fn print(text: &str) {
     let print_addr = 0x1A10FF80;
@@ -42,15 +43,14 @@ macro_rules! print {
 #[macro_export]
 macro_rules! print_nr {
     ($name:tt,$number:tt) => {{
-        {
-            use numtoa::NumToA; 
+        
             print($name);
             let mut buf = [0u8; 100];
             let number = number.numtoa_str(16, &mut buf);
             print($number);
             print("\n");
             
-        }
+        
 
     }};
 }
