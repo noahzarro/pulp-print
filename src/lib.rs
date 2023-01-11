@@ -53,7 +53,7 @@ macro_rules! print_nr {
             let mut buf = [0u8; 100];
             let number = match $format {
                 Format::Hex => $number.numtoa_str(16, &mut buf),
-                Format::Bin => $number.numtoa_str(2, &mut buf);
+                Format::Bin => $number.numtoa_str(2, &mut buf),
                 _ => $number.numtoa_str(10, &mut buf),
             }
              
