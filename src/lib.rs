@@ -19,7 +19,7 @@ pub fn print(text: &str) {
 #[macro_export]
 macro_rules! println {
     ($($arg:tt),*) => {{
-        use ::print;
+        use super::print;
         $(
             print($arg);
             print(" ");
