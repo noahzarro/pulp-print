@@ -19,6 +19,7 @@ pub fn print(text: &str) {
 #[macro_export]
 macro_rules! println {
     ($($arg:tt),*) => {{
+        use print;
         $(
             print($arg);
             print(" ");
@@ -56,7 +57,7 @@ macro_rules! print_nr {
                 Format::Bin => $number.numtoa_str(2, &mut buf),
                 _ => $number.numtoa_str(10, &mut buf),
             };
-             
+            
             print(" ");
             print(number);
             print("\n");        
