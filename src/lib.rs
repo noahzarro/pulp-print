@@ -52,7 +52,7 @@ pub enum Format {
 macro_rules! print_nr {
     ($name:tt,$number:tt,$format:path) => {
             use pulp_print::print;
-            use pulp_print::numtoa;
+            use pulp_print::numtoa::NumToA;
             print($name);
             let mut buf = [0u8; 100];
             let number = match $format {
