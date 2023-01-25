@@ -1,6 +1,7 @@
 #![no_std]
 
 use core::arch::asm;
+pub use numtoa;
 
 pub fn print(text: &str) {
     let print_addr = 0x1A10FF80;
@@ -51,6 +52,7 @@ pub enum Format {
 macro_rules! print_nr {
     ($name:tt,$number:tt,$format:path) => {
             use pulp_print::print;
+            use pulp_print::numtoa;
             print($name);
             let mut buf = [0u8; 100];
             let number = match $format {
