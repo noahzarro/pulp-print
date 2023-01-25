@@ -63,7 +63,11 @@ macro_rules! print_nr {
         };
         
         print(" ");
-        print(number);
+        match $format {
+            Format::Hex => print("0x"),
+            Format::Bin => print("0b"),
+            _ => (),
+        };
         print("\n");        
         
     }};
