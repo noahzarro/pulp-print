@@ -32,6 +32,7 @@ macro_rules! println {
 #[macro_export]
 macro_rules! print {
     ($($arg:tt),*) => {{
+        use pulp_print::print;
         $(
             print($arg);
             print(" ");
@@ -49,7 +50,7 @@ pub enum Format {
 #[macro_export]
 macro_rules! print_nr {
     ($name:tt,$number:tt,$format:path) => {
-       
+            use pulp_print::print;
             print($name);
             let mut buf = [0u8; 100];
             let number = match $format {
