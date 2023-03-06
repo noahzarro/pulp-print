@@ -76,7 +76,7 @@ macro_rules! print_nr {
 
 #[macro_export]
 macro_rules! print_nr_only {
-    ($$number:tt,$format:path) => {{
+    ($number:tt,$format:path) => {{
 
         use pulp_print::print;
         use pulp_print::numtoa::NumToA;
